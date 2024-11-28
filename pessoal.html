@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erik Santos - Sobre Mim</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Erik Santos</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="sobre-mim">
+        <h2>Sobre mim</h2>
+        <p>Me chamo Erik, tenho 21 anos. Natural de Macapá-AP, sou um jovem aspirante a programador, atualmente com foco em Python.</p>
+    </section>
+    <section class="foto">
+        <img src="eu.jpg" alt="Foto de Erik Santos">
+    </section>
+    <section id="hobbies">
+        <h2>Meus hobbies</h2>
+        <ul>
+            <li>Adoro ouvir música no meu tempo livre, uma pessoa eclética que desenvolve hiperfoco em alguma banda rapidamente.</li>
+            <li>Aos finais de semana aproveito meu tempo livre para jogar.</li>
+            <li>Adoro assistir filmes e séries. Minha favorita de todos os tempos é <em>Breaking Bad</em>.</li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; <span id="year"></span> Erik Santos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const yearSpan = document.getElementById('year');
+        yearSpan.textContent = new Date().getFullYear();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
